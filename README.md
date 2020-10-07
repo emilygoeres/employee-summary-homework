@@ -22,7 +22,6 @@ Steps I took to complete assignment:
 
 Link to Video: https://drive.google.com/file/d/1PErFEubadDFOuLbZNTj2lUkc2hCypgqk/view
 
-Link to README Info: https://confluence.atlassian.com/bitbucketserver/markdown-syntax-guide-776639995.html
 
 Emily Goeres,
 Univeristy of Washington

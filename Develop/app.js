@@ -40,7 +40,7 @@ function promptUser() {
  function createHTML () {
   console.log(employeeArr)
   // var HTMLtext=await render(employeeArr)
-  fs.writeFileSync("./outputPath/team.html", render(employeeArr), function(){
+  fs.writeFileSync("./output/team.html", render(employeeArr), function(){
     console.log("Until Next Time")
   })
 }
