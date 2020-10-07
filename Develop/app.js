@@ -4,6 +4,7 @@ const Intern = require("./lib/Intern");
 const inquirer = require("inquirer");
 const path = require("path");
 const fs = require("fs");
+var employeeArr = []
 
 const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
@@ -19,166 +20,122 @@ function promptUser() {
   }).then(function ({ choice }) {
     switch (choice) {
       case "Create a Manager":
-        createManager();
+        CreateManager();
         break;
 
       case "Create a Engineer":
-        createEngineer();
+        CreateEngineer();
         break;
 
       case "Create a Intern":
-        createIntern();
+        CreateIntern();
         break;
 
       default:
-        console.log("Please select an employee to create")
+        createHTML();
         break;
     }
   })
 }
-
-function CreateManager() {
-  if (!Manager.length) {
-    console.log('create a Manager')
-    createManager()
-  }
-  else {
-    const nameOfManager = manager.map(function (manager) {
-      return manager.name
-    })
-    inquirer.prompt([
-      {
-        type: "input",
-        message: "What is your name?",
-        choices: managerName,
-        name: "managerName"
-      }, {
-        type: "input",
-        message: "What is your role?",
-        choices: managerRole,
-        name: "managerRole"
-      }, {
-        type: "input",
-        message: "What is your email?",
-        choices: managerEmail,
-        name: "managerEmail"
-      }, {
-        type: "input",
-        message: "What is your office number?",
-        choices: officeNumber,
-        name: "officeNumber"
-      },
-      {
-        type: "linput",
-        message: "What is your employee ID?",
-        choices: employeeId,
-        name: "employeeId"
-      }
-    ]).then(function (answers) {
-      let selectedManager;
-      for (let i = 0; i < manager.length; i++) {
-        if (manager[i].name === answers.managerChoice) {
-          selectedManager = manager[i]
-        }
-      }
-      selectedManager.addManager(answers.managerName, answers.managerRole, answers.managerEmail, answers.officeNumber, answers.employeeId);
-      console.log(`${selectedManager.name} Created a manager!`)
-      console.log(selectedManager);
-      createdManager();
-    })
-  }
+function createHTML () {
+  console.log(employeeArr)
 }
 
+function CreateManager() {
+
+  inquirer.prompt([
+    {
+      type: "input",
+      message: "What is your name?",
+      choices: managerName,
+      name: "managerName"
+    }, {
+      type: "input",
+      message: "What is your email?",
+      choices: managerEmail,
+      name: "managerEmail"
+    }, {
+      type: "input",
+      message: "What is your office number?",
+      choices: officeNumber,
+      name: "officeNumber"
+    },
+    {
+      type: "linput",
+      message: "What is your employee ID?",
+      choices: employeeId,
+      name: "employeeId"
+    }
+  ]).then(function (answers) {
+    let selectedManager = new Manager(answers.managerName, answers.employeeId, answers.managerEmail, answers.officeNumber)
+    employeeArr.push(selectedManager)
+    promptUser();
+  })
+}
+
+
 function CreateEngineer() {
-  if (!Engineer.length) {
-    console.log('Create a Engineer!')
-    createEngineer()
-  }
-  else {
-    const nameOfEngineer = Engineer.map(function (engineer) {
-      return engineer.name
-    })
-    inquirer.prompt([
-      {
-        type: "input",
-        message: "What is your name?",
-        choices: engineerName,
-        name: "engineerName"
-      }, {
-        type: "input",
-        message: "What is your role?",
-        choices: engineerRole,
-        name: "engineerRole"
-      }, {
-        type: "input",
-        message: "What is your email?",
-        choices: engineerEmail,
-        name: "engineerEmail"
-      }, {
-        type: "input",
-        message: "What is your github username?",
-        choices: githubUsername,
-        name: "githubUsername"
-      }
-    ]).then(function (answers) {
-      let selectedEngineer;
-      for (let i = 0; i < engineer.length; i++) {
-        if (engineer[i].name === answers.engineerChoice) {
-          selectedEngineer = engineer[i]
-        }
-      }
-      selectedEngineer.addEngineer(answers.engineerName, answers.engineerRole, answers.engineerEmail, answers.githubUsername);
-      console.log(`${selectedEngineer.name} Created a engineer!`)
-      console.log(selectedEngineer);
-      createdEngineer();
-    })
-  }
+
+  inquirer.prompt([
+    {
+      type: "input",
+      message: "What is your name?",
+      choices: engineerName,
+      name: "engineerName"
+    }, {
+      type: "input",
+      message: "What is your email?",
+      choices: engineerEmail,
+      name: "engineerEmail"
+    }, {
+      type: "input",
+      message: "What is your github username?",
+      choices: githubUsername,
+      name: "githubUsername"
+    },
+    {
+      type: "linput",
+      message: "What is your employee ID?",
+      choices: employeeId,
+      name: "employeeId"
+    }
+  ]).then(function (answers) {
+    let selectedEngineer = new Engineer(answers.engineerName, answers.employeeId, answers.engineerEmail, answers.githubUsername)
+    employeeArr.push(selectedEngineer)
+    promptUser();
+  })
 }
 
 function CreateIntern() {
-  if (!Intern.length) {
-    console.log('create a Intern!')
-    createIntern()
-  }
-  else {
-    const nameOfIntern = Intern.map(function (intern) {
-      return intern.name
-    })
-    inquirer.prompt([
-      {
-        type: "input",
-        message: "What is your name?",
-        choices: internName,
-        name: "internName"
-      }, {
-        type: "input",
-        message: "What is your role?",
-        choices: internRole,
-        name: "internRole"
-      }, {
-        type: "input",
-        message: "What is your email?",
-        choices: internEmail,
-        name: "internEmail"
-      }, {
-        type: "input",
-        message: "What school are you attending?",
-        choices: schoolName,
-        name: "schoolName"
-      }
-    ]).then(function (answers) {
-      let selectedIntern;
-      for (let i = 0; i < intern.length; i++) {
-        if (intern[i].name === answers.internChoice) {
-          selectedIntern = intern[i]
-        }
-      }
-      selectedIntern.addEngineer(answers.internName, answers.internRole, answers.internEmail, answers.schoolName);
-      console.log(`${selectedIntern.name} Created a Intern`)
-      console.log(selectedIntern);
-      createdIntern();
-    })
-  }
+
+  inquirer.prompt([
+    {
+      type: "input",
+      message: "What is your name?",
+      choices: internName,
+      name: "internName"
+    }, {
+      type: "input",
+      message: "What is your email?",
+      choices: internEmail,
+      name: "internEmail"
+    }, {
+      type: "input",
+      message: "What school are you attending?",
+      choices: schoolName,
+      name: "schoolName"
+    },
+    {
+      type: "linput",
+      message: "What is your employee ID?",
+      choices: employeeId,
+      name: "employeeId"
+    }
+  ]).then(function (answers) {
+    let selectedIntern = new Intern(answers.internName, answers.employeeId, answers.InternEmail, answers.schoolName)
+    employeeArr.push(selectedIntern)
+    promptUser();
+  })
 }
 
 function createEmployee() {
@@ -212,8 +169,7 @@ function createEmployee() {
   }
 }
 
-createEmployee();
-
+promptUser();
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
 
