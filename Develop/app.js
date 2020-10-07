@@ -14,7 +14,7 @@ function promptUser() {
   inquirer.prompt({
     type: "list",
     name: "choice",
-    message: "What do you wanna do?",
+    message: "What employee do you want to create?",
     choices: ["Create a Manager", "Create a Engineer", "Create a Intern", "Quit"]
   }).then(function ({ choice }) {
     switch (choice) {
@@ -182,32 +182,32 @@ function CreateIntern() {
 }
 
 function createEmployee() {
-  if (!manager.length) {
-    console.log('create a manager')
-    createManager()
+  if (!employee.length) {
+    console.log('create a employee')
+    createEmployee()
   } else {
-    const namesOfTrainers = trainers.map(function (trainer) {
-      return trainer.name
+    const nameOfEmployee = employee.map(function (employee) {
+      return employee.name
     })
     inquirer.prompt({
       type: 'list',
-      choices: namesOfTrainers,
-      message: "from whose collection?",
-      name: "trainerChoice"
-    }).then(function ({ trainerChoice }) {
-      let selectedTrainer;
-      for (let i = 0; i < trainers.length; i++) {
-        if (trainers[i].name === trainerChoice) {
-          selectedTrainer = trainers[i]
+      choices: typeOfEmployee,
+      message: "Select an Employee to create",
+      name: "employeeChoice"
+    }).then(function ({ employeeChoice }) {
+      let selectedEmployee;
+      for (let i = 0; i < employee.length; i++) {
+        if (employee[i].name === employeeChoice) {
+          selectedEmployee = employee[i]
         }
       }
-      if (!selectedTrainer.pokemon.length) {
-        console.log("he has no pokemon!")
+      if (!selectedEmployee.employee.length) {
+        console.log("Create an Employee")
 
       } else {
-        console.log(selectedTrainer.getRandomPokemon())
+        console.log(selectedEmployee.getEmployee())
       }
-      playGame();
+      createEmployee();
     })
   }
 }
