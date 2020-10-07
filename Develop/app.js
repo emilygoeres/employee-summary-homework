@@ -9,6 +9,9 @@ var employeeArr = []
 const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
+// const output_DIR = path.resolve(__dirname, "output");
+// const outputPath = path.join(output_DIR, "team.html");
+
 const render = require("./lib/htmlRenderer");
 
 function promptUser() {
@@ -32,15 +35,23 @@ function promptUser() {
         break;
 
       default:
-        createHTML();
+        createHTML(employeeArr);
         break;
     }
   })
 }
 
-function createHTML () {
+// function createHTML (employeeArr) {
+//   console.log(employeeArr)
+//   fs.writeFile(outputPath, render(employeeArr), function(err){
+//     if (err) throw err;
+//     console.log("Until Next Time")
+//   })
+// }
+function createHTML (employeeArr) {
   console.log(employeeArr)
-  fs.writeFile(outputPath, render(employeeArr), function(err){
+  const htmlStr = render(employeeArr)
+  fs.writeFile(outputPath, htmlStr, function(err){
     if (err) throw err;
     console.log("Until Next Time")
   })
