@@ -18,7 +18,7 @@ Steps I took to complete assignment:
 
 ![Employee Summary](https://github.com/emilygoeres/employee-summary-homework/blob/main/Develop/employee.PNG)
 ![Employee Summary](https://github.com/emilygoeres/employee-summary-homework/blob/main/Develop/employee1.PNG)
-![Employee Summary](https://github.com/emilygoeres/employee-summary-homework/blob/main/Develop/employee1.PNG)
+![Employee Summary](https://github.com/emilygoeres/employee-summary-homework/blob/main/Develop/employee2.PNG)
 
 
 Link to Video: https://drive.google.com/file/d/1PErFEubadDFOuLbZNTj2lUkc2hCypgqk/view
