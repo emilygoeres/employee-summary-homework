@@ -37,8 +37,12 @@ function promptUser() {
     }
   })
 }
-function createHTML () {
+ function createHTML () {
   console.log(employeeArr)
+  // var HTMLtext=await render(employeeArr)
+  fs.writeFileSync("./index.html", render(employeeArr), function(){
+    console.log("Until Next Time")
+  })
 }
 
 function CreateManager() {
@@ -47,23 +51,19 @@ function CreateManager() {
     {
       type: "input",
       message: "What is your name?",
-      choices: managerName,
       name: "managerName"
     }, {
       type: "input",
       message: "What is your email?",
-      choices: managerEmail,
       name: "managerEmail"
     }, {
       type: "input",
       message: "What is your office number?",
-      choices: officeNumber,
       name: "officeNumber"
     },
     {
       type: "linput",
       message: "What is your employee ID?",
-      choices: employeeId,
       name: "employeeId"
     }
   ]).then(function (answers) {
@@ -80,23 +80,19 @@ function CreateEngineer() {
     {
       type: "input",
       message: "What is your name?",
-      choices: engineerName,
       name: "engineerName"
     }, {
       type: "input",
       message: "What is your email?",
-      choices: engineerEmail,
       name: "engineerEmail"
     }, {
       type: "input",
       message: "What is your github username?",
-      choices: githubUsername,
       name: "githubUsername"
     },
     {
       type: "linput",
       message: "What is your employee ID?",
-      choices: employeeId,
       name: "employeeId"
     }
   ]).then(function (answers) {
@@ -112,27 +108,23 @@ function CreateIntern() {
     {
       type: "input",
       message: "What is your name?",
-      choices: internName,
       name: "internName"
     }, {
       type: "input",
       message: "What is your email?",
-      choices: internEmail,
       name: "internEmail"
     }, {
       type: "input",
       message: "What school are you attending?",
-      choices: schoolName,
       name: "schoolName"
     },
     {
       type: "linput",
       message: "What is your employee ID?",
-      choices: employeeId,
       name: "employeeId"
     }
   ]).then(function (answers) {
-    let selectedIntern = new Intern(answers.internName, answers.employeeId, answers.InternEmail, answers.schoolName)
+    let selectedIntern = new Intern(answers.internName, answers.employeeId, answers.internEmail, answers.schoolName)
     employeeArr.push(selectedIntern)
     promptUser();
   })

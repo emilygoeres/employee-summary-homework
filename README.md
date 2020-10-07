@@ -2,14 +2,16 @@
 Title of Project
 Employee Summary
 
-Project Description: This project teaches you how to use node, switch statements and how to link html pages to your node pages.
+Project Description: This project teaches you how to use node.js, switch statements, how to use render, how to links html pages with node.
 
-Installations: Installed npm init and npm inquirer
+Installations: Installed npm package, npm i inquirer
 
 Usage: This application is used to create employee info on your webpage.
 
 Steps I took to complete assignment:
-1. 
+1. Created employee, engineer, intern node folders
+2. Added necessary constructors for each class
+3. 
 
 
 
