@@ -16,8 +16,8 @@ Steps I took to complete assignment:
 5. Created an if/else statement to run through all of the questions for each employee and once run through was complete, the cycle could start over
 6. Created a fs.writeFile to get the employee info from the console to the webpage
 
-
-
+![Employee Summary](https://github.com/emilygoeres/employee-summary-homework/blob/main/Develop/employee.PNG)
+![Employee Summary](https://github.com/emilygoeres/employee-summary-homework/blob/main/Develop/employee1.PNG)
 
 
 Link to Video: https://drive.google.com/file/d/1PErFEubadDFOuLbZNTj2lUkc2hCypgqk/view
