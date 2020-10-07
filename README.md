@@ -1,5 +1,5 @@
 # employee-summary-homework
-Title of Project
+Title of Project:
 Employee Summary
 
 Project Description: This project teaches you how to use node.js, switch statements, how to use render, how to link html pages with node.
@@ -15,14 +15,14 @@ Steps I took to complete assignment:
 4. Created a switch statement to pick from type of employee and created a quit option to end creating employees.
 5. Created an if/else statement to run through all of the questions for each employee and once run through was complete, the cycle could start over
 6. Created a fs.writeFile to get the employee info from the console to the webpage
+7. Created an output folder with a team.html for all of the employee info to be represented on a webpage
 
 ![Employee Summary](https://github.com/emilygoeres/employee-summary-homework/blob/main/Develop/employee.PNG)
 ![Employee Summary](https://github.com/emilygoeres/employee-summary-homework/blob/main/Develop/employee1.PNG)
 ![Employee Summary](https://github.com/emilygoeres/employee-summary-homework/blob/main/Develop/employee2.PNG)
 
 
-Link to Video: https://drive.google.com/file/d/1PErFEubadDFOuLbZNTj2lUkc2hCypgqk/view
+Link to Video: https://drive.google.com/file/d/1IPnoyBITJ9wxfd5y7_j8WkdLRWKKvxY2/view
 
-
-Emily Goeres,
-Univeristy of Washington
+##### Emily Goeres, 
+### Univeristy of Washington
