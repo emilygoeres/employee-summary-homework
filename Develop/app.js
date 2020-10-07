@@ -37,13 +37,15 @@ function promptUser() {
     }
   })
 }
- function createHTML () {
+
+function createHTML () {
   console.log(employeeArr)
-  // var HTMLtext=await render(employeeArr)
-  fs.writeFileSync("./output/team.html", render(employeeArr), function(){
+  fs.writeFile(outputPath, render(employeeArr), function(err){
+    if (err) throw err;
     console.log("Until Next Time")
   })
 }
+
 
 function CreateManager() {
 
@@ -162,6 +164,8 @@ function createEmployee() {
 }
 
 promptUser();
+
+
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
 
